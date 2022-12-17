@@ -2,46 +2,36 @@
 <html lang="cs-CZ">
     <head>
         <meta charset="utf-8" />
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
-        <meta name="description" content="@yield('description')" />
-        <title>@yield('title', env('APP_NAME'))</title>
+        <meta name="csrf-token" content="" />
+        <meta name="description" content="" />
+        <title>@yield('title')</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 
         <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body>
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-            <h5 class="my-0 mr-md-auto font-weight-normal">{{ env('APP_NAME') }}</h5>
-            <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-dark" href="#">Hlavní stránka</a>
-                <a class="p-2 text-dark" href="#">Seznam článků</a>
-                <a class="p-2 text-dark" href="#">Kontakt</a>
-            </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Virtual-Run</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="nahrani-behu">Nahrání běhu</a>
+                </li>
+            </ul>
+            </div>
         </div>
+    </nav>
 
-        <div class="container">
-            @if ($errors->any())
-                <div class="alert alert-danger mb-4">
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            @yield('content')
-
-            <footer class="pt-4 my-md-5 border-top">
-                <p>
-                    Ukázkový tutoriál pro jednoduchý redakční systém v Laravel frameworku z programátorské sociální sítě
-                    <a href="http://www.itnetwork.cz" target="_blank">itnetwork.cz</a>
-                </p>
-            </footer>
-        </div>
-
-        @stack('scripts')
+    
+    @stack('scripts')
     </body>
 </html>
-Zdroj: https://www.itnetwork.cz/php/laravel/jednoduchy-redakcni-system-v-laravel-vypis-clanku
