@@ -30,7 +30,7 @@
             </div>
         </div>
     </nav>
-
+    @yield('content')
     
     @stack('scripts')
     </body>

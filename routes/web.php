@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UploadResultController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +17,6 @@ use App\Http\Controllers\UploadResultController;
 
 Route::get('/', HomeController::class);
 
-Route::get('nahrani-behu', [UploadResultController::class,'index']);
+Route::get('nahrani-behu', [UploadController::class,'show'])->name('upload.show');
+Route::post('uploadFile', [UploadController::class,'uploadFile'])->name('uploadFile');
+
